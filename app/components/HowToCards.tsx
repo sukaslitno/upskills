@@ -93,7 +93,7 @@ export default function HowToCards() {
             <div
               key={i}
               ref={cardRefs[i]}
-              className={`${card.bg} absolute inset-0 rounded-3xl overflow-hidden p-4 flex flex-col gap-4 lg:rounded-[36px] lg:p-16 lg:gap-6`}
+              className={`${card.bg} absolute inset-0 rounded-[24px] overflow-hidden p-4 flex flex-col gap-9 lg:rounded-[36px] lg:p-16 lg:gap-6`}
               style={{
                 zIndex: i + 1,
                 willChange: "transform, opacity",
@@ -101,21 +101,21 @@ export default function HowToCards() {
                 opacity: i === 0 ? 1 : 0,
               }}
             >
-              {/* Header row */}
-              <div className="flex items-center justify-between w-full">
-                <p className="font-bold text-[28px] leading-none text-[#161616] lg:text-[36px]">
-                  {card.title}
-                </p>
-                <p
-                  className={`font-bold text-[32px] leading-normal lg:text-[86px] ${card.stepColor}`}
-                >
-                  {card.step}
-                </p>
-              </div>
-
-              {/* Mobile: image + description stacked */}
-              <div className="flex flex-col gap-4 flex-1 lg:hidden">
-                <div className="relative w-full h-[207px] rounded-2xl overflow-hidden shrink-0">
+              {/* Mobile layout */}
+              <div className="flex flex-col gap-6 items-start w-full lg:hidden">
+                {/* Header row */}
+                <div className="flex items-center justify-between w-full">
+                  <p className="flex-1 font-bold text-[28px] leading-none text-[#161616]">
+                    {card.title}
+                  </p>
+                  <p
+                    className={`font-bold text-[32px] leading-normal shrink-0 ${card.stepColor}`}
+                  >
+                    {card.step}
+                  </p>
+                </div>
+                {/* Image */}
+                <div className="relative w-full h-[207px] rounded-[16px] overflow-hidden shrink-0">
                   <Image
                     src={card.image}
                     alt={card.title}
@@ -125,12 +125,23 @@ export default function HowToCards() {
                     quality={85}
                   />
                 </div>
-                <p className="font-bold text-base leading-[1.4] text-[#161616] w-full">
-                  {card.description}
+              </div>
+              {/* Mobile description */}
+              <p className="font-bold text-base leading-[1.4] text-[#161616] w-full lg:hidden">
+                {card.description}
+              </p>
+
+              {/* Desktop layout */}
+              <div className="hidden lg:flex items-center justify-between w-full">
+                <p className="font-bold text-[36px] leading-none text-[#161616]">
+                  {card.title}
+                </p>
+                <p
+                  className={`font-bold text-[86px] leading-normal ${card.stepColor}`}
+                >
+                  {card.step}
                 </p>
               </div>
-
-              {/* Desktop: description + image side by side */}
               <div className="hidden lg:flex items-end justify-between flex-1 w-full">
                 <p className="font-bold text-2xl leading-[1.4] text-[#161616] w-[560px]">
                   {card.description}
