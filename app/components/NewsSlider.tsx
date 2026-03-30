@@ -48,13 +48,13 @@ export default function NewsSlider() {
       <div className="flex flex-col gap-6 items-start w-full">
         <div
           ref={scrollRef}
-          className="flex gap-6 items-start w-full overflow-x-auto scrollbar-hide pb-2 -mx-4 px-4 lg:mx-0 lg:px-0 lg:overflow-visible"
+          className="flex gap-6 items-start w-full overflow-x-auto scrollbar-hide pb-2 -mx-4 px-4 lg:mx-0 lg:px-0 lg:overflow-visible lg:items-stretch"
           style={{ scrollSnapType: "x mandatory" }}
         >
           {newsItems.map((item, index) => (
             <div
               key={index}
-              className="border-[6px] border-[#64d3ff] flex flex-col items-start justify-between p-6 rounded-[36px] shrink-0 w-[285px] min-h-[300px] lg:shrink lg:flex-1 lg:w-auto lg:h-[283px] lg:min-h-0"
+              className="border-[6px] border-[#64d3ff] flex flex-col items-start justify-between p-6 rounded-[36px] shrink-0 w-[285px] min-h-[300px] lg:shrink lg:flex-1 lg:w-auto lg:h-auto lg:min-h-0"
               style={{ scrollSnapAlign: "start" }}
             >
               <div className="flex flex-col gap-6 items-start w-full">
@@ -67,7 +67,7 @@ export default function NewsSlider() {
                   {item.title}
                 </p>
               </div>
-              <p className="font-medium text-base leading-[1.4] text-[#161616]/65 w-full mt-6">
+              <p className="font-medium text-base leading-[1.4] text-[#161616]/65 w-full mt-6 lg:mt-auto">
                 {item.text}
               </p>
             </div>
