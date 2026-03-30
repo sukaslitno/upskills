@@ -81,8 +81,7 @@ export default function HowToCards() {
   return (
     <section
       ref={sectionRef}
-      className="relative"
-      style={{ height: "300vh" }}
+      className="relative cards-section-height"
     >
       <div className="sticky top-0 h-screen flex flex-col justify-center px-4 py-8 lg:px-20 lg:py-16">
         <h2 className="font-bold text-[28px] leading-none text-[#161616] w-full mb-6 lg:text-[56px] lg:mb-12">

@@ -24,6 +24,15 @@ body {
   to { transform: rotate(360deg); }
 }
 
+.cards-section-height {
+  height: 220vh;
+}
+@media (min-width: 1024px) {
+  .cards-section-height {
+    height: 300vh;
+  }
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
