@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma__get_design_context",
+      "Bash(npx create-next-app@latest track --typescript --tailwind --eslint --app --src-dir --no-import-alias --use-npm)",
+      "Bash(rm -rf track)",
+      "Bash(npx --yes create-next-app@latest track --typescript --tailwind --eslint --app --src-dir --no-import-alias --use-npm --turbopack)",
+      "Bash(npx --yes create-next-app@latest track --typescript --tailwind --eslint --app --src-dir --no-import-alias --use-npm)",
+      "Bash(yes \"\")",
+      "Bash(npx --yes create-next-app@latest track --ts --tailwind --eslint --app --src-dir --no-import-alias --use-npm)",
+      "Bash(mkdir -p public/images public/icons)",
+      "Bash(cp \"../\"*.svg public/icons/)",
+      "Bash(cp \"../\"*.png public/images/)",
+      "Bash(npm install:*)",
+      "Bash(node -e \":*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(gh repo:*)",
+      "Bash(npx --yes vercel --yes)"
+    ]
+  }
+}
