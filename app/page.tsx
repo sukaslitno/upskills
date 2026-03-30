@@ -3,6 +3,7 @@ import TrackInput from "./components/TrackInput";
 import ReviewsSlider from "./components/ReviewsSlider";
 import FAQ from "./components/FAQ";
 import NewsSlider from "./components/NewsSlider";
+import HowToCards from "./components/HowToCards";
 
 const services = [
   { name: "Почта России", logo: "/logos/russian-post.svg", size: 65 },
@@ -206,58 +207,7 @@ export default function Home() {
         </section>
 
         {/* How To Section */}
-        <section className="flex flex-col gap-9 px-4 py-12 lg:px-20 lg:pt-[86px] lg:pb-4 lg:gap-12 lg:h-[900px]">
-          <h2 className="font-bold text-[28px] leading-none text-[#161616] w-full lg:text-[56px]">
-            Как отследить посылку
-          </h2>
-          <div className="bg-white flex flex-col gap-9 items-start p-4 rounded-3xl w-full lg:p-16 lg:rounded-[36px] lg:flex-1 lg:gap-6 lg:overflow-hidden">
-            {/* Step header */}
-            <div className="flex flex-col gap-6 items-start w-full lg:gap-6 lg:flex-1">
-              <div className="flex items-center justify-between w-full">
-                <div className="flex-1 font-bold text-[28px] leading-none text-[#161616] lg:text-[36px]">
-                  <p className="lg:inline">Введите </p>
-                  <p className="lg:inline">трек-номер</p>
-                </div>
-                <span className="font-bold text-[32px] leading-normal text-[#b8f9fc] lg:text-[86px]">
-                  01
-                </span>
-              </div>
-              {/* Mobile: image below, full width */}
-              <div className="relative w-full h-[207px] rounded-2xl overflow-hidden lg:hidden">
-                <Image
-                  src="/images/Step Image.png"
-                  alt="Введите трек-номер"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 343px"
-                  quality={85}
-                />
-              </div>
-              {/* Desktop: text + image side by side at the bottom */}
-              <div className="hidden lg:flex items-end justify-between w-full flex-1">
-                <p className="font-bold text-2xl leading-[1.4] text-[#161616] w-[560px]">
-                  Укажите номер отправления, который вы получили от продавца или
-                  службы доставки
-                </p>
-                <div className="relative rounded-2xl w-[460px] h-full overflow-hidden">
-                  <Image
-                    src="/images/Step Image.png"
-                    alt="Введите трек-номер"
-                    fill
-                    className="object-cover"
-                    sizes="460px"
-                    quality={85}
-                  />
-                </div>
-              </div>
-            </div>
-            {/* Mobile description */}
-            <p className="font-bold text-base leading-[1.4] text-[#161616] w-full lg:hidden">
-              Укажите номер отправления, который вы получили от продавца или
-              службы доставки
-            </p>
-          </div>
-        </section>
+        <HowToCards />
 
         {/* Info Text Section */}
         <section className="px-4 py-12 lg:px-20 lg:py-[86px]">
