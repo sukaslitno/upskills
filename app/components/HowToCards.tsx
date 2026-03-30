@@ -93,7 +93,7 @@ export default function HowToCards() {
             <div
               key={i}
               ref={cardRefs[i]}
-              className={`${card.bg} absolute inset-0 rounded-[24px] overflow-hidden p-4 flex flex-col gap-9 lg:rounded-[36px] lg:p-16 lg:gap-6`}
+              className={`${card.bg} absolute top-0 left-0 right-0 lg:bottom-0 rounded-[24px] overflow-hidden p-4 flex flex-col gap-9 lg:rounded-[36px] lg:p-16 lg:gap-6`}
               style={{
                 zIndex: i + 1,
                 willChange: "transform, opacity",
