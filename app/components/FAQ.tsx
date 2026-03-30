@@ -40,21 +40,21 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <div className="flex flex-col gap-[36px] items-start px-4 py-12 w-full">
-      <h2 className="font-bold text-[28px] leading-none text-[#161616] w-full">
+    <div className="flex flex-col gap-[36px] items-start px-4 py-12 w-full lg:px-20 lg:py-[86px] lg:gap-12">
+      <h2 className="font-bold text-[28px] leading-none text-[#161616] w-full lg:text-[56px]">
         Частые вопросы
       </h2>
       <div className="flex flex-col gap-4 items-start w-full">
         {faqItems.map((item, index) => (
           <div
             key={index}
-            className="bg-white flex flex-col gap-3 items-start overflow-hidden p-6 rounded-3xl w-full"
+            className="bg-white flex flex-col gap-3 items-start overflow-hidden p-6 rounded-3xl w-full lg:rounded-[36px]"
           >
             <button
               onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
               className="flex gap-3 items-center w-full cursor-pointer text-left"
             >
-              <p className="flex-1 font-bold text-lg leading-[1.1] text-[#161616]">
+              <p className="flex-1 font-bold text-lg leading-[1.1] text-[#161616] lg:text-2xl lg:leading-normal">
                 {item.question}
               </p>
               <div className="shrink-0 w-6 h-6 flex items-center justify-center">

@@ -132,7 +132,7 @@ export default function ReviewsSlider() {
   };
 
   return (
-    <div className="flex flex-col gap-6 items-center justify-center w-full">
+    <div className="flex flex-col gap-6 items-center justify-center w-full lg:gap-0">
       <div
         className="w-full overflow-hidden"
         onTouchStart={handleTouchStart}
@@ -148,51 +148,79 @@ export default function ReviewsSlider() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="flex gap-3 items-center w-full"
+            className="flex gap-3 items-center w-full lg:gap-[86px] lg:items-end"
           >
-            <div className="relative rounded-2xl shrink-0 w-[93px] h-[178px] overflow-hidden">
+            {/* Image */}
+            <div className="relative rounded-2xl shrink-0 w-[93px] h-[178px] overflow-hidden lg:w-[400px] lg:h-[600px] lg:rounded-[36px]">
               <Image
                 src={review.image}
                 alt={review.name}
                 fill
                 className="object-cover"
-                sizes="93px"
+                sizes="(min-width: 1280px) 400px, 93px"
                 quality={85}
               />
             </div>
-            <div className="flex flex-1 flex-col gap-3 items-start justify-center min-w-0">
-              <div className="flex flex-col gap-2 items-start w-full">
-                <p className="font-bold text-base leading-[1.4] text-[#161616]">
-                  {review.name}
-                </p>
-                <div className="flex gap-2 items-center">
-                  <span className="text-[10px] font-medium text-[#161616]/65">
-                    {review.date}
-                  </span>
-                  <span className="w-1 h-1 rounded-full bg-[#161616]/65" />
-                  <span className="text-[10px] font-medium text-[#161616]/65">
-                    {review.region}
-                  </span>
-                </div>
-                <div className="flex gap-3 items-center">
-                  <div className="flex gap-2">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <StarIcon key={star} filled={star <= review.rating} />
-                    ))}
+            {/* Text content */}
+            <div className="flex flex-1 flex-col gap-3 items-start justify-center min-w-0 lg:gap-[86px]">
+              <div className="flex flex-col gap-2 items-start w-full lg:gap-3 lg:flex-col">
+                {/* Name and meta */}
+                <div className="flex flex-col gap-2 items-start w-full lg:gap-3">
+                  <p className="font-bold text-base leading-[1.4] text-[#161616] lg:text-2xl">
+                    {review.name}
+                  </p>
+                  <div className="flex gap-2 items-center">
+                    <span className="text-[10px] font-medium text-[#161616]/65 lg:text-base lg:leading-[1.4]">
+                      {review.date}
+                    </span>
+                    <span className="w-1 h-1 rounded-full bg-[#161616]/65" />
+                    <span className="text-[10px] font-medium text-[#161616]/65 lg:text-base lg:leading-[1.4]">
+                      {review.region}
+                    </span>
                   </div>
-                  <span className="text-[10px] font-medium text-[#161616]/65">
-                    {review.rating}/5
-                  </span>
+                  <div className="flex gap-3 items-center">
+                    <div className="flex gap-2">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <StarIcon key={star} filled={star <= review.rating} />
+                      ))}
+                    </div>
+                    <span className="text-[10px] font-medium text-[#161616]/65 lg:text-base lg:leading-[1.4]">
+                      {review.rating}/5
+                    </span>
+                  </div>
                 </div>
+                {/* Review text */}
+                <p className="font-bold text-lg leading-[1.1] text-[#161616] lg:text-[48px] lg:leading-[1.1]">
+                  {review.text}
+                </p>
               </div>
-              <p className="font-bold text-lg leading-[1.1] text-[#161616]">
-                {review.text}
-              </p>
+              {/* Pagination */}
+              <div className="hidden lg:flex gap-2 items-start">
+                {reviews.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      goTo(index);
+                      startAutoplay();
+                    }}
+                    className={`w-[50px] h-[50px] flex items-center justify-center rounded-2xl cursor-pointer transition-all ${
+                      index === current
+                        ? "bg-white border-2 border-[#161616]"
+                        : "bg-white border-2 border-transparent"
+                    }`}
+                  >
+                    <span className="font-bold text-2xl text-[#161616]">
+                      {index + 1}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className="flex gap-2 items-start w-full">
+      {/* Mobile pagination */}
+      <div className="flex gap-2 items-start w-full lg:hidden">
         {reviews.map((_, index) => (
           <button
             key={index}

@@ -67,8 +67,8 @@ export default function TrackInput() {
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full">
-      <div className="flex flex-col gap-1 w-full">
+    <div className="flex flex-col gap-4 w-full lg:flex-row lg:gap-4 lg:items-start">
+      <div className="flex flex-col gap-1 w-full lg:flex-1">
         <div
           className={`bg-white flex items-center h-[50px] px-6 py-2.5 rounded-2xl w-full transition-all ${getBorderColor()}`}
           onMouseEnter={() => {
@@ -92,16 +92,17 @@ export default function TrackInput() {
         {errorMessage ? (
           <p className="text-red-500 text-xs font-medium px-6">{errorMessage}</p>
         ) : (
-          <div className="flex items-center justify-center px-6">
+          <div className="flex items-center justify-center px-6 lg:justify-start">
             <p className="text-[10px] font-medium text-[#161616]/65">
               Например: RA123456789CN, LX987654321US
             </p>
           </div>
         )}
       </div>
+      {/* Mobile button */}
       <button
         onClick={handleTrack}
-        className="bg-[#d8ff74] flex gap-4 h-[50px] items-center justify-center px-6 py-1 rounded-2xl w-full hover:bg-[#c8ef64] active:bg-[#b8df54] transition-colors cursor-pointer"
+        className="bg-[#d8ff74] flex gap-4 h-[50px] items-center justify-center px-6 py-1 rounded-2xl w-full hover:bg-[#c8ef64] active:bg-[#b8df54] transition-colors cursor-pointer lg:hidden"
       >
         {loading ? (
           <div className="spinner" />
@@ -109,6 +110,24 @@ export default function TrackInput() {
           <span className="font-semibold text-base text-[#161616]">
             Отследить
           </span>
+        )}
+      </button>
+      {/* Desktop button with arrow */}
+      <button
+        onClick={handleTrack}
+        className="hidden lg:flex bg-[#d8ff74] gap-4 h-[50px] items-center pl-6 pr-1 py-1 rounded-2xl shrink-0 hover:bg-[#c8ef64] active:bg-[#b8df54] transition-colors cursor-pointer"
+      >
+        {loading ? (
+          <div className="spinner" />
+        ) : (
+          <>
+            <span className="font-semibold text-base text-[#161616] whitespace-nowrap">
+              Отследить
+            </span>
+            <div className="bg-white rounded-xl w-[42px] h-[42px] flex items-center justify-center shrink-0">
+              <img src="/icons/arrow-right.svg" alt="" className="w-6 h-6" />
+            </div>
+          </>
         )}
       </button>
     </div>
