@@ -8,27 +8,27 @@ export default function RatingChart({
   const maxBar = Math.max(...bars);
 
   return (
-    <div className="bg-white flex flex-col gap-9 h-auto items-start overflow-hidden pt-6 pb-16 px-6 rounded-[24px] w-full lg:flex-1 lg:h-[439px] lg:rounded-[36px] lg:px-16">
+    <div className="bg-white flex flex-col gap-6 items-start overflow-hidden p-6 rounded-[24px] w-full lg:flex-1 lg:h-[439px] lg:rounded-[36px] lg:pt-6 lg:pb-16 lg:px-16 lg:gap-9">
       {/* Header */}
       <div className="flex items-center justify-between w-full">
         <div className="flex gap-6 items-center">
-          <img src="/icons/StarBig.svg" alt="" className="w-9 h-9" />
-          <span className="font-bold text-2xl leading-none text-[#161616] lg:text-[36px]">
+          <img src="/icons/StarBig.svg" alt="" className="w-6 h-6 lg:w-9 lg:h-9" />
+          <span className="font-bold text-lg leading-[1.1] text-[#161616] lg:text-[36px] lg:leading-none">
             Рейтинг
           </span>
         </div>
-        <span className="font-bold text-[40px] leading-normal text-[#fecc00] lg:text-[56px]">
+        <span className="font-bold text-[32px] leading-normal text-[#fecc00] lg:text-[56px]">
           {rating.toFixed(1).replace(".", ",")}
         </span>
       </div>
 
       {/* Bars */}
-      <div className="flex-1 flex flex-col w-full">
-        <div className="flex-1 flex items-end justify-between px-1 gap-2 lg:gap-0">
+      <div className="flex-1 flex flex-col w-full min-h-[180px]">
+        <div className="flex-1 flex items-end justify-between px-1">
           {bars.map((height, i) => (
             <div
               key={i}
-              className="bg-[#64d3ff] rounded-t-xl w-10 lg:w-12 transition-all"
+              className="bg-[#64d3ff] rounded-t-xl w-9 lg:w-12"
               style={{ height: `${(height / maxBar) * 100}%` }}
             />
           ))}
@@ -38,7 +38,7 @@ export default function RatingChart({
           {bars.map((_, i) => (
             <div
               key={i}
-              className="flex gap-1.5 items-center justify-center w-10 lg:w-12"
+              className="flex gap-1.5 items-center justify-center w-9 lg:w-12"
             >
               <span className="font-medium text-base leading-[1.4] text-[#161616]/65">
                 {i + 1}

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import TrackInput from "./components/TrackInput";
 import ReviewsSlider from "./components/ReviewsSlider";
 import FAQ from "./components/FAQ";
@@ -6,7 +7,7 @@ import NewsSlider from "./components/NewsSlider";
 import HowToCards from "./components/HowToCards";
 
 const services = [
-  { name: "Почта России", logo: "/logos/russian-post.svg", size: 65 },
+  { name: "Почта России", logo: "/logos/russian-post.svg", size: 65, slug: "/pochta-rossii" },
   { name: "СДЭК", logo: "/logos/sdek.svg", size: 64 },
   { name: "EMS", logo: "/logos/china-ems.svg", size: 64 },
   { name: "Cainiao", logo: "/logos/cainiao.svg", size: 64 },
@@ -45,22 +46,13 @@ export default function Home() {
           <div className="bg-[#64d3ff] flex flex-col gap-[120px] items-start p-4 rounded-3xl w-full lg:px-14 lg:py-9 lg:rounded-[36px]">
             {/* Header */}
             <div className="flex items-center justify-between w-full">
-              {/* Mobile logo */}
-              <div className="h-6 w-[117px] relative lg:hidden">
+              <Link href="/" className="h-6 w-[117px] relative lg:h-8 lg:w-[154px]">
                 <img
                   src="/logos/logo.svg"
                   alt="Up-Skills"
                   className="w-full h-full"
                 />
-              </div>
-              {/* Desktop logo */}
-              <div className="hidden lg:block h-8 w-[154px] relative">
-                <img
-                  src="/logos/logo.svg"
-                  alt="Up-Skills"
-                  className="w-full h-full"
-                />
-              </div>
+              </Link>
               {/* Mobile hamburger */}
               <button className="w-6 h-6 flex items-center justify-center lg:hidden">
                 <img
@@ -130,51 +122,68 @@ export default function Home() {
           {/* Mobile: list. Desktop: grid of cards */}
           {/* Mobile list */}
           <div className="flex flex-col gap-2 items-start w-full lg:hidden">
-            {services.map((service) => (
-              <div
-                key={service.name}
-                className="bg-white flex gap-4 items-center overflow-hidden px-6 py-4 rounded-3xl w-full"
-              >
-                <p className="flex-1 font-bold text-2xl leading-normal text-[#161616]">
-                  {service.name}
-                </p>
+            {services.map((service) => {
+              const card = (
                 <div
-                  className="relative shrink-0"
-                  style={{
-                    width: service.w ?? service.size,
-                    height: service.h ?? service.size,
-                  }}
+                  key={service.name}
+                  className="bg-white flex gap-4 items-center overflow-hidden px-6 py-4 rounded-3xl w-full"
                 >
-                  <img
-                    src={service.logo}
-                    alt={service.name}
-                    className="w-full h-full object-contain"
-                  />
+                  <p className="flex-1 font-bold text-2xl leading-normal text-[#161616]">
+                    {service.name}
+                  </p>
+                  <div
+                    className="relative shrink-0"
+                    style={{
+                      width: service.w ?? service.size,
+                      height: service.h ?? service.size,
+                    }}
+                  >
+                    <img
+                      src={service.logo}
+                      alt={service.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+              return service.slug ? (
+                <Link key={service.name} href={service.slug} className="w-full">
+                  {card}
+                </Link>
+              ) : (
+                card
+              );
+            })}
           </div>
           {/* Desktop grid */}
           <div className="hidden lg:flex flex-wrap gap-4 items-start w-full">
-            {services.map((service, index) => (
-              <div
-                key={service.name}
-                className={`bg-white flex flex-col h-[280px] items-start justify-between overflow-hidden p-6 rounded-[36px] ${
-                  index < 5 ? "w-[243px] shrink-0" : "flex-1 min-w-[200px]"
-                }`}
-              >
-                <p className="font-bold text-2xl leading-normal text-[#161616] w-full">
-                  {service.name}
-                </p>
-                <div className="relative shrink-0 w-[128px] h-[128px]">
-                  <img
-                    src={service.logo}
-                    alt={service.name}
-                    className="w-full h-full object-contain"
-                  />
+            {services.map((service, index) => {
+              const card = (
+                <div
+                  className={`bg-white flex flex-col h-[280px] items-start justify-between overflow-hidden p-6 rounded-[36px] ${
+                    index < 5 ? "w-[243px] shrink-0" : "flex-1 min-w-[200px]"
+                  }`}
+                >
+                  <p className="font-bold text-2xl leading-normal text-[#161616] w-full">
+                    {service.name}
+                  </p>
+                  <div className="relative shrink-0 w-[128px] h-[128px]">
+                    <img
+                      src={service.logo}
+                      alt={service.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+              return service.slug ? (
+                <Link key={service.name} href={service.slug}>
+                  {card}
+                </Link>
+              ) : (
+                <div key={service.name}>{card}</div>
+              );
+            })}
           </div>
         </section>
 
@@ -273,13 +282,13 @@ export default function Home() {
               <div className="flex flex-col gap-6 items-start w-full lg:gap-9 lg:w-auto lg:flex-1">
                 {/* Logo */}
                 <div className="flex flex-col gap-6 items-start">
-                  <div className="h-8 w-[154px] relative">
+                  <Link href="/" className="h-8 w-[154px] relative block">
                     <img
                       src="/logos/logo.svg"
                       alt="Up-Skills"
                       className="w-full h-full"
                     />
-                  </div>
+                  </Link>
                   {/* Navigation buttons */}
                   <div className="flex items-center justify-between rounded-2xl w-full lg:justify-start lg:gap-2">
                     {/* Mobile nav */}
