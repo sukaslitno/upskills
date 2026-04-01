@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 
 const newsItems = [
   {
@@ -35,15 +36,14 @@ export default function NewsSlider() {
         <h2 className="font-bold text-[28px] leading-none text-[#161616] w-full lg:text-[56px] lg:flex-1">
           Новости доставки и логистики
         </h2>
-        {/* Desktop button next to title */}
-        <button className="hidden lg:flex bg-[#d8ff74] gap-4 h-[50px] items-center pl-6 pr-1 py-1 rounded-2xl shrink-0 hover:bg-[#c8ef64] active:bg-[#b8df54] transition-colors cursor-pointer">
+        <Link href="/services" className="hidden lg:flex bg-[#d8ff74] gap-4 h-[50px] items-center pl-6 pr-1 py-1 rounded-2xl shrink-0 hover:bg-[#c8ef64] active:bg-[#b8df54] transition-colors cursor-pointer">
           <span className="font-semibold text-base text-[#161616] whitespace-nowrap">
             Все службы
           </span>
           <div className="bg-white rounded-xl w-[42px] h-[42px] flex items-center justify-center shrink-0">
             <img src="/icons/arrow-right.svg" alt="" className="w-6 h-6" />
           </div>
-        </button>
+        </Link>
       </div>
       <div className="flex flex-col gap-6 items-start w-full">
         <div
@@ -73,12 +73,11 @@ export default function NewsSlider() {
             </div>
           ))}
         </div>
-        {/* Mobile button */}
-        <button className="bg-[#d8ff74] flex gap-4 h-[50px] items-center justify-center px-6 py-1 rounded-2xl w-full hover:bg-[#c8ef64] active:bg-[#b8df54] transition-colors cursor-pointer lg:hidden">
+        <Link href="/services" className="bg-[#d8ff74] flex gap-4 h-[50px] items-center justify-center px-6 py-1 rounded-2xl w-full hover:bg-[#c8ef64] active:bg-[#b8df54] transition-colors cursor-pointer lg:hidden">
           <span className="font-semibold text-base text-[#161616]">
             Все службы
           </span>
-        </button>
+        </Link>
       </div>
     </div>
   );

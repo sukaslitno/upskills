@@ -47,7 +47,7 @@ export default function ServicesPage() {
                 Службы доставки
               </Link>
               <span className="font-semibold text-base leading-[1.1] text-[#161616]">Каталог</span>
-              <span className="font-semibold text-base leading-[1.1] text-[#161616]">FAQ</span>
+              <Link href="/#faq" className="font-semibold text-base leading-[1.1] text-[#161616]">FAQ</Link>
             </nav>
           </div>
 
@@ -183,9 +183,9 @@ export default function ServicesPage() {
                       <div className="bg-[#d8ff74] flex items-center px-6 py-4 rounded-2xl">
                         <span className="font-semibold text-base leading-[1.1] text-[#161616]">Каталог</span>
                       </div>
-                      <div className="bg-[#d8ff74] flex items-center px-6 py-4 rounded-2xl">
+                      <Link href="/#faq" className="bg-[#d8ff74] flex items-center px-6 py-4 rounded-2xl">
                         <span className="font-semibold text-base leading-[1.1] text-[#161616]">FAQ</span>
-                      </div>
+                      </Link>
                     </div>
                   </div>
                 </div>

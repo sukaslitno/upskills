@@ -40,7 +40,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <div className="flex flex-col gap-[36px] items-start px-4 py-12 w-full lg:px-20 lg:py-[86px] lg:gap-12">
+    <div id="faq" className="flex flex-col gap-[36px] items-start px-4 py-12 w-full lg:px-20 lg:py-[86px] lg:gap-12 scroll-mt-4">
       <h2 className="font-bold text-[28px] leading-none text-[#161616] w-full lg:text-[56px]">
         Частые вопросы
       </h2>
