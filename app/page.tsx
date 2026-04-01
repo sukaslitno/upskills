@@ -63,9 +63,9 @@ export default function Home() {
               </button>
               {/* Desktop navigation */}
               <nav className="hidden lg:flex bg-white gap-9 items-center px-6 py-4 rounded-2xl">
-                <span className="font-semibold text-base leading-[1.1] text-[#161616]">
+                <Link href="/services" className="font-semibold text-base leading-[1.1] text-[#161616]">
                   Службы доставки
-                </span>
+                </Link>
                 <span className="font-semibold text-base leading-[1.1] text-[#161616]">
                   Каталог
                 </span>
@@ -309,11 +309,11 @@ export default function Home() {
                     </div>
                     {/* Desktop nav */}
                     <div className="hidden lg:flex gap-2 items-center">
-                      <div className="bg-[#d8ff74] flex items-center px-6 py-4 rounded-2xl">
+                      <Link href="/services" className="bg-[#d8ff74] flex items-center px-6 py-4 rounded-2xl">
                         <span className="font-semibold text-base leading-[1.1] text-[#161616]">
                           Службы доставки
                         </span>
-                      </div>
+                      </Link>
                       <div className="bg-[#d8ff74] flex items-center px-6 py-4 rounded-2xl">
                         <span className="font-semibold text-base leading-[1.1] text-[#161616]">
                           Каталог

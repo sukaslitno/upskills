@@ -52,7 +52,7 @@ export default function PochtaRossiiPage() {
               {/* Desktop navigation */}
               <nav className="hidden lg:flex bg-white gap-9 items-center px-6 py-4 rounded-2xl">
                 <Link
-                  href="/"
+                  href="/services"
                   className="font-semibold text-base leading-[1.1] text-[#161616]"
                 >
                   Службы доставки
@@ -172,11 +172,11 @@ export default function PochtaRossiiPage() {
                       </span>
                     </div>
                     <div className="hidden lg:flex gap-2 items-center">
-                      <div className="bg-[#d8ff74] flex items-center px-6 py-4 rounded-2xl">
+                      <Link href="/services" className="bg-[#d8ff74] flex items-center px-6 py-4 rounded-2xl">
                         <span className="font-semibold text-base leading-[1.1] text-[#161616]">
                           Службы доставки
                         </span>
-                      </div>
+                      </Link>
                       <div className="bg-[#d8ff74] flex items-center px-6 py-4 rounded-2xl">
                         <span className="font-semibold text-base leading-[1.1] text-[#161616]">
                           Каталог
